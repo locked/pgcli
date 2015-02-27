@@ -239,8 +239,7 @@ class PGCli(object):
                 else:
                     click.echo_via_pager('\n'.join(output))
                     if pgspecial.TIMING_ENABLED:
-                        print('Command Time:', duration)
-                        print('Format Time:', total)
+                        print('Command/Format Time: %.1fms/%.1fms' % (duration * 1000, total * 1000))
                 finally:
                     for cur, _, _ in res:
                         if hasattr(cur, 'close'):
